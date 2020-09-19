@@ -9,7 +9,7 @@ services:
     volumes:
       - ../frontend:/var/www/front
     working_dir: /var/www/front
-    command: yarn start
+    command: npm start
     tty: true
     networks:
       - tienda-d-web
@@ -75,6 +75,12 @@ services:
     entrypoint: ['php', '/var/www/html/artisan']
     networks:
       - tienda-d-db
+
+  node:
+    image: node:14.10.1
+    volumes:
+      - ../frontend:/var/www/front
+    working_dir: /var/www/front
 
 networks:
   tienda-d-db:
